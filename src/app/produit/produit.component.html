@@ -1,0 +1,51 @@
+<div class="row">
+  <div *ngIf="quantite!==0" class="col-md-4">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center" scope="col">produit</th>
+          <th class="text-center" scope="col">photo</th>
+          <th class="text-center" scope="col">prix</th>
+          <th class="text-center" scope="col">contenance</th>
+          <th class="text-center" scope="col">suprimer</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let parfum of panier">
+          <td class="text-center"> {{parfum.nom}}</td>
+          <td class="text-center"><img src="{{ parfum.photo}}" alt="" width="40" height="40"></td>
+          <td class="text-center" >{{parfum.prix | currency:'Eru'}}</td>
+          <td class="text-center">{{parfum.contenance}} Ml</td>
+          <td class="text-center"> <button  (click)="retraitPanier(parfum.nom)"   class="btn btn-danger ">X</button> </td>
+          <td class="text-center"> {{parfum.quantite}} </td>
+
+
+        </tr>
+
+      </tbody>
+    </table>
+    <p class="text-end">total:{{quantite}} articles <strong>{{ total () | currency: 'Eru'}} </strong></p>
+  </div>
+  <div  [class.col]="quantite==0" [class.col-md-8]="quantite!==0">
+      <div class="row justify-content-around">
+        <div *ngFor="let produit of produits" class="card col-md-3 mb-3 ps-0 pe-0" style="width: 18rem;">
+          <div class="card-header bg-dark text-white text-center">
+            <h4>{{produit.marque}}</h4>
+          </div>
+          <img src="{{produit.photo}}" class="card-img-top" alt="photo {{produit.nom}}">
+          <div class="card-body">
+            <h4 class="card-title">{{produit.nom}}</h4>
+            <div><h5>{{produit.prix}}€</h5></div>
+
+            <app-details  [cont]="produit.contenance" [desc]="produit.description"></app-details>
+
+
+            <a href="#" (click)="ajoutPanier(produit,produit.nom)" class="btn btn-primary">Ajouter au panier</a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

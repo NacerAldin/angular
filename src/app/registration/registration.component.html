@@ -1,0 +1,32 @@
+
+<div>
+  <form #signupForm='ngForm' (ngSubmit)="registerUser(signupForm)">
+    <fieldset>
+
+
+        <div class="form-group">
+          <label for="exampleInputPrenom" class="form-label mt-4">preNom</label>
+          <input type="prenom"  name="prenom" class="form-control" id="exampleInputPrenom" aria-=""  placeholder="Enter votre prenom"  ngModel>
+        </div>
+        <div>
+          <label for="exampleInputNom" class="form-label mt-4">Nom</label>
+          <input type="nom" name="lastName" class="form-control" id="exampleInputNom" aria-="" placeholder="Enter votre nom" ngModel>
+        </div>
+        <div>
+          <div>
+            <label for="exampleInputNom" class="form-label mt-4">Email</label>
+            <input type="nemail" name="Email" class="form-control" id="exampleInputNom" aria-="" placeholder="Enter votreemail" ngModel>
+          </div>
+          <div>
+          <label for="exampleInputPassWord" class="form-label mt-4">password </label>
+          <input type="password"  name="passWord" class="form-control" id="exampleInputPassWord" aria-=""  placeholder="Enter votre password" ngModel>
+         </div>
+         </div>
+
+            <button type="submit"  class="btn btn-primry ptn3"> engestrer</button>
+
+    </fieldset>
+  </form>
+
+
+</div>
